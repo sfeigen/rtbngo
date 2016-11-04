@@ -6,7 +6,7 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "I am a GO application running on Kuber Cloud.")
+	fmt.Fprintf(w, "I am a GO application running on new schema.")
 }
 
 func main() {
