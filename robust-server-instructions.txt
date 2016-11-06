@@ -1,0 +1,14 @@
+sudo apt-get update
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-133.0.0-linux-x86_64.tar.gz
+tar zxf google-cloud-sdk-133.0.0-linux-x86_64.tar.gz
+source google-cloud-sdk/path.bash.inc
+gcloud auth activate-service-account --key-file /home/runner/auth.json --project rtbngo-id
+gcloud components install kubectl --quiet
+gcloud config set compute/zone us-central1-a
+gcloud config set container/cluster app-cluster
+gcloud container clusters get-credentials app-cluster --zone us-central1-a
+gcloud config set container/use_client_certificate True
+gcloud config list
+kubectl config list
+kubectl config set-credentials cluster-admin
+kubectl set image deployment/app-image app-image=gcr.io/rtbngo-id/app-image:latest
