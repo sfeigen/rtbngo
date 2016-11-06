@@ -6,7 +6,7 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "GoApp V:2")
+	fmt.Fprintf(w, "GoApp V:3")
 }
 
 func main() {
